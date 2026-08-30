@@ -1,22 +1,33 @@
-import heroAIing from "@/assets/img/everphoto.jpg";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import heroAIimg from "@/assets/img/everphoto.jpg";
 
 const FAQS = [
   {
-    q: "What is Evermore?",
-    a: "Evermore bridges the gap between the digital world and real-world opportunities while contributing to the development of next-generation Generative Artificial Intelligence.",
+    q: "What is JOVIA?",
+    a: "JOVIA is an all-in-one digital rewards platform that bridges daily online activities with tangible earning opportunities. Whether you are shopping on JOVIA Easy Buy, streaming music, or engaging on Meta platforms, JOVIA rewards your time.",
   },
   {
-    q: "What is Evermore's mission?",
-    a: "We focus on creating better prompts, more intelligent interactions, and increasing human-like responses to make AI more useful and natural.",
+    q: "What is JOVIA's mission?",
+    a: "Our mission is to empower users worldwide by turning everyday digital engagement—listening to music, social media tasks, and e-commerce—into direct financial rewards and valuable digital skills.",
   },
   {
-    q: "How can I earn rewards?",
-    a: "Users can earn rewards by helping train our AI, improving memory functions, and contributing to the growth of our platform.",
+    q: "How can I earn rewards on JOVIA?",
+    a: "You can earn through multiple official channels: completing Meta activities across WhatsApp, Facebook, and Instagram; streaming music from major platforms like Spotify and Apple Music; and uploading or trading verified products on JOVIA Easy Buy.",
+  },
+  {
+    q: "How does the JOVIA Mentorship Program work?",
+    a: "Every new subscriber is paired with a dedicated personal mentor upon joining. Your mentor provides step-by-step guidance to help you navigate the platform, optimize your task efficiency, and maximize your daily earning potential.",
   },
 ];
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section className="relative overflow-hidden bg-[#2C044F] py-24 md:py-32 text-white">
       {/* Ambient Background Glows */}
@@ -26,22 +37,22 @@ export default function FAQ() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
-        {/* ================= ABOUT EVERAI ================= */}
+        {/* ================= ABOUT JOVIA MENTORSHIP ================= */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}
           <div className="order-2 lg:order-1">
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#2C044F]/80 text-[#FCF6BA] text-xs font-bold uppercase tracking-wider"
             >
-              EverAI Mentorship Program
+              JOVIA Mentorship Program
             </motion.div>
 
             <motion.h3
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
@@ -49,50 +60,41 @@ export default function FAQ() {
             >
               Learn, Earn &
               <span className="block bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] bg-clip-text text-transparent">
-                Grow with EverAI
+                Grow with JOVIA
               </span>
             </motion.h3>
 
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="space-y-4 mt-6 text-[#fff] leading-relaxed text-base md:text-lg"
+              className="space-y-4 mt-6 text-[#FCF6BA]/85 leading-relaxed text-base md:text-lg font-normal"
             >
               <p>
-                Understanding our products and opportunities is not a myth as we
-                have provided every subscriber with a personal mentor
-                immediately after signing up.
+                Understanding our products and earning avenues is seamless. We pair every subscriber with a dedicated personal mentor immediately after sign-up.
               </p>
               <p>
-                Our mentorship program creates a pathway where every EverAI
-                subscriber receives dedicated guidance and support to fully
-                understand all monetization opportunities available on Evermore.
+                Our mentorship program ensures that every JOVIA member receives tailored guidance to unlock the full earning potential across all platform channels.
               </p>
               <p>
-                Your personal mentor will help you understand how to navigate
-                the platform, explore available earning opportunities, and, most
-                importantly, learn how to earn hourly while training our
-                generative AI.
+                Your personal mentor will walk you through setting up Meta tasks, streaming music for rewards, listing items on JOVIA Easy Buy, and maximizing your payouts.
               </p>
             </motion.div>
-
-           
           </div>
 
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="order-1 lg:order-2 relative"
           >
-            <div className="relative overflow-hidden rounded-3xl p-2">
+            <div className="relative overflow-hidden rounded-3xl p-2 ">
               <img
-                src={heroAIing}
-                alt="EverAI Mentorship Program"
+                src={heroAIimg}
+                alt="JOVIA Mentorship Program"
                 className="w-full h-auto rounded-2xl object-cover"
               />
             </div>
@@ -100,16 +102,16 @@ export default function FAQ() {
         </div>
 
         {/* ================= FAQ SECTION ================= */}
-        <div id="faq" className="max-w-5xl mx-auto mt-28 lg:mt-36">
+        <div id="faq" className="max-w-4xl mx-auto mt-28 lg:mt-36">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-2xl mx-auto text-center"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#2C044F]/80 text-[#FCF6BA] text-xs font-bold uppercase tracking-wider">
-              FAQ EverAI
+              JOVIA Help Center
             </span>
 
             <h3 className="mt-5 text-4xl md:text-6xl font-black leading-tight text-white">
@@ -120,41 +122,62 @@ export default function FAQ() {
             </h3>
 
             <p className="mt-3 text-sm md:text-base text-[#FCF6BA]/70">
-              Learn more about Evermore, our AI mission, reward system, and
-              opportunities.
+              Everything you need to know about JOVIA, our reward system, and getting started.
             </p>
           </motion.div>
 
           {/* FAQ Accordions */}
           <div className="mt-12 space-y-4">
-            {FAQS.map((item, index) => (
-              <motion.div
-                key={item.q}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.15,
-                  ease: "easeOut",
-                }}
-              >
-                <details className="group rounded-2xl border border-[#D4AF37]/20 bg-[#3A0768]/40 backdrop-blur-md overflow-hidden">
-                  <summary className="cursor-pointer list-none p-6 flex items-center justify-between font-semibold text-white">
-                    <span className="text-lg">{item.q}</span>
-                    <span className="text-[#FCF6BA] text-xl font-bold ml-4">
+            {FAQS.map((item, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <motion.div
+                  key={item.q}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: "easeOut",
+                  }}
+                  className="rounded-2xl \overflow-hidden transition-colors duration-300"
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full p-6 text-left flex items-center justify-between font-bold text-white transition-colors"
+                  >
+                    <span className="text-base sm:text-lg pr-4">{item.q}</span>
+                    <span
+                      className={`text-[#FCF6BA] text-2xl font-bold transition-transform duration-300 shrink-0 ${
+                        isOpen ? "rotate-45" : "rotate-0"
+                      }`}
+                    >
                       +
                     </span>
-                  </summary>
+                  </button>
 
-                  <div className="px-6 pb-6 pt-2 border-t border-[#D4AF37]/10">
-                    <p className="text-[#FCF6BA]/80 leading-relaxed text-sm sm:text-base">
-                      {item.a}
-                    </p>
-                  </div>
-                </details>
-              </motion.div>
-            ))}
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6 pt-1 border-t border-[#D4AF37]/10">
+                          <p className="text-[#FCF6BA]/80 leading-relaxed text-sm sm:text-base font-normal">
+                            {item.a}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

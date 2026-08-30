@@ -21,7 +21,6 @@ export default function Cta() {
           md:px-12
           md:py-16
           text-center
-          shadow-[0_10px_40px_rgba(0,0,0,0.5)]
         "
       >
         {/* Glow Effects */}
@@ -110,7 +109,6 @@ export default function Cta() {
                 from-[#BF953F]
                 via-[#FCF6BA]
                 to-[#B38728]
-                shadow-[0_4px_20px_rgba(212,175,55,0.3)]
                 transition-all
                 duration-300
               "

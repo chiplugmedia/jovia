@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import logo from "@/assets/img/jovia.png";
 
 const NAV_LINKS = [
-  { href: "#about", label: "About Us" },
+  { href: "about", label: "About Us" },
   { href: "#plans", label: "Plans" },
   { href: "#faq", label: "FAQ" },
 ];

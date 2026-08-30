@@ -1,5 +1,5 @@
-import heroVisual from "@/assets/img/evermorehero0.jpg";
-import heroAI from "@/assets/img/image0AI.jpeg";
+import heroVisual from "@/assets/img/image0vea.jpeg";
+import heroAI from "@/assets/img/joviawin.jpg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -34,16 +34,6 @@ export default function AboutSection() {
 
           {/* Content Left (Staggered Slide In Up) */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#2C044F]/80 text-[#FCF6BA] text-xs font-bold uppercase tracking-wider"
-            >
-              Core Product
-            </motion.div>
-
             <motion.h3
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -51,9 +41,9 @@ export default function AboutSection() {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="mt-5 text-4xl md:text-6xl font-black leading-tight text-white"
             >
-              Meet
+              Just One Vision
               <span className="block bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] bg-clip-text text-transparent">
-                EverAI
+                Intelligent Advancement
               </span>
             </motion.h3>
 
@@ -64,30 +54,22 @@ export default function AboutSection() {
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
               className="space-y-4 mt-6 text-[#fff]/80 leading-relaxed"
             >
-              <p className="text-lg">
-                EverAI is the core product developed by the Evermore brand and
-                serves as the foundation for many of our future technologies,
-                features and intelligent systems.
-              </p>
-              <p>
-                Built as a Generative Artificial Intelligence assistant, EverAI
-                is designed to understand human language, process prompts and
-                generate intelligent responses based on user instructions.
-              </p>
-              <p>
-                To become smarter and more human-like, EverAI requires training,
-                feedback and continuous improvements. We provide opportunities
-                for contributors to help train, correct and enhance its memory,
-                reasoning and response capabilities through simple tasks.
-              </p>
-              <p>
-                Through our reward system, contributors are recognized and paid
-                based on the value of their completed tasks and their impact on
-                EverAI's development and intelligence growth.
-              </p>
+              <div className="text-lg">
+                <p>
+                  JOVIA is a multinational intelligent networking platform
+                  designed to help users earn for the time they spend through
+                  networking, digital skills, entertainment, and engaging
+                  activities. By setting a countdown timer, users can
+                  participate in activities and earn money for every second
+                  spent on the platform.
+                </p>
+                <p>
+                  Founded by a seasoned serial entrepreneur, JOVIA serves users
+                  across several African countries with one simple mission: to
+                  ensure that every user gains real value from their time.
+                </p>
+              </div>
             </motion.div>
-
-         
 
             {/* CTA Button (Slide In Up) */}
             <motion.div
@@ -156,8 +138,8 @@ export default function AboutSection() {
                 The system is designed to identify, filter, and promptly notify
                 subscribers when new remote jobs and opportunities become
                 available, paying as high as{" "}
-                <span className="font-bold text-[#fff]">$18.6/hour</span>.
-                Most job offers are simple tasks that require little to no
+                <span className="font-bold text-[#fff]">$18.6/hour</span>. Most
+                job offers are simple tasks that require little to no
                 experience, special skills, or qualifications.
               </p>
             </motion.div>

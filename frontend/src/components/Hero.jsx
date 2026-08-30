@@ -37,9 +37,9 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mt-8 text-4xl sm:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-white"
         >
-          Earn For Your Time Through{" "}
+          Every Secound Creates{" "}
           <span className="block mt-2 bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] bg-clip-text text-transparent drop-shadow-sm">
-            Networking & Digital Skills
+            Value
           </span>
         </motion.h1>
 
