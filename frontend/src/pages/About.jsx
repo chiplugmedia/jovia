@@ -14,7 +14,7 @@ export default function About() {
         <PageHero
           title="About Us"
           subtitle="Learn more about our mission, core values, and the team driving our digital innovations."
-          category="About Us Evermore"
+          category="About Us JOVIA"
         />
         {/* Rest of the page content */}
       </main>
