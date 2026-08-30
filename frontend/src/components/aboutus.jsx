@@ -23,10 +23,10 @@ export default function AboutSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative overflow-hidden rounded-3xp-2">
+            <div className="relative overflow-hidden rounded-3xl p-2">
               <img
                 src={heroVisual}
-                alt="EverAI Core Product"
+                alt=" Core Product"
                 className="w-full h-auto rounded-2xl object-cover transition-transform duration-700"
               />
             </div>
@@ -52,9 +52,9 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="space-y-4 mt-6 text-[#fff]/80 leading-relaxed"
+              className="space-y-4 mt-6 text-white/80 leading-relaxed"
             >
-              <div className="text-lg">
+              <div className="text-lg space-y-4">
                 <p>
                   JOVIA is a multinational intelligent networking platform
                   designed to help users earn for the time they spend through
@@ -81,86 +81,12 @@ export default function AboutSection() {
             >
               <Link
                 to="/register"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-[#2C044F] bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-[#2C044F] bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] shadow-[0_10px_25px_rgba(191,149,63,0.3)] hover:shadow-[0_15px_30px_rgba(252,246,186,0.4)] hover:scale-105 transition-all duration-300"
               >
-                Join EverAI Training
+                Get Started
               </Link>
             </motion.div>
           </div>
-        </div>
-
-        {/* ================= SECTION 2 - REMOTE JOBS ================= */}
-        <div className="mt-28 lg:mt-36 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Content Left (Slide In Up) */}
-          <div className="order-2 lg:order-1">
-            <motion.span
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#2C044F]/80 text-[#FCF6BA] text-xs font-bold uppercase tracking-wider"
-            >
-              About EverAI
-            </motion.span>
-
-            <motion.h3
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="mt-5 text-4xl md:text-6xl font-black leading-tight text-white"
-            >
-              Unlock Global Remote Job
-              <span className="block bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] bg-clip-text text-transparent">
-                Opportunities with EverAI.
-              </span>
-            </motion.h3>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="space-y-4 mt-6 text-[#fff]/80 leading-relaxed"
-            >
-              <p className="text-lg font-medium text-white">
-                Signing up on EverAI Assistant gives you access to a new
-                dimension of opportunities within the global digital labour
-                market.
-              </p>
-              <p>
-                EverAI has been developed to source and distribute remote job
-                opportunities from around the world, helping subscribers
-                discover relevant opportunities without having to search
-                endlessly across multiple platforms.
-              </p>
-              <p>
-                The system is designed to identify, filter, and promptly notify
-                subscribers when new remote jobs and opportunities become
-                available, paying as high as{" "}
-                <span className="font-bold text-[#fff]">$18.6/hour</span>. Most
-                job offers are simple tasks that require little to no
-                experience, special skills, or qualifications.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Image Right (Slide In Up) */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="order-1 lg:order-2 relative"
-          >
-            <div className="relative overflow-hidden rounded-3xl p-2">
-              <img
-                src={heroAI}
-                alt="EverAI Remote Jobs"
-                className="w-full h-auto rounded-2xl object-cover transition-transform duration-700"
-              />
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

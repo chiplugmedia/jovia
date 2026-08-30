@@ -63,7 +63,7 @@ export default function SignupForm() {
       setLoading(true);
 
       const res = await fetch(
-        "http://api.evermorenetwork.com/api/create-payment",
+        "http://api.jovianetwork.ng/api/create-payment",
         {
           method: "POST",
           headers: {
