@@ -5,7 +5,7 @@ import logo from "@/assets/img/jovia.png";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "#about", label: "About" },
+  { href: "about", label: "About" },
   { href: "#how", label: "How It Works" },
   { href: "#features", label: "Features" },
   { href: "#faq", label: "FAQ" },

@@ -68,7 +68,7 @@ export default function Footer() {
 
                 <ul className="mt-4 space-y-3 text-sm text-white/60">
                   <li>
-                    <a href="#about" className="hover:text-white transition">
+                    <a href="about" className="hover:text-white transition">
                       About Jovia
                     </a>
                   </li>
