@@ -192,12 +192,12 @@ export default function ImageGallery() {
                     />
 
                     <div className="relative z-10 flex flex-col h-full justify-between gap-6">
-                      {/* Image Component (Top on mobile and layout) */}
+                      {/* Image Component */}
                       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#05010d]/90 p-2 shadow-inner">
                         <img
                           src={item.imageUrl}
                           alt={item.title}
-                          className="h-48 w-full object-contain rounded-xl sm:h-56"
+                          className="w-full h-auto rounded-xl object-contain"
                           loading="lazy"
                         />
                       </div>
