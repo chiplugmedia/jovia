@@ -1,94 +1,89 @@
-import heroVisual from "@/assets/img/image0vea.jpeg";
-import heroAI from "@/assets/img/joviawin.jpg";
+import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Sparkles, ArrowRight } from "lucide-react";
+import aboutImage from "@/assets/img/image0vea.jpeg";
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-[#2C044F] py-24 md:py-32 text-white">
-      {/* Ambient Background Glows */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 -left-40 w-[600px] h-[600px] bg-[#D4AF37]/10 rounded-full blur-[160px]" />
-        <div className="absolute bottom-1/4 -right-40 w-[600px] h-[600px] bg-[#BF953F]/10 rounded-full blur-[160px]" />
+    <div className="relative overflow-hidden bg-[#05010d] text-white">
+      {/* Shared Background Effects matching AboutSection */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute left-20 top-20 h-72 w-72 rounded-full bg-purple-600/20 blur-[120px]" />
+        <div className="absolute right-20 top-[40%] h-96 w-96 rounded-full bg-fuchsia-600/10 blur-[150px]" />
+        <div className="absolute bottom-20 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[180px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#a855f71f,transparent_50%)]" />
       </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
-        {/* ================= SECTION 1 - EVERAI ================= */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image (Slide In Up) */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
-          >
-            <div className="relative overflow-hidden rounded-3xl p-2">
-              <img
-                src={heroVisual}
-                alt=" Core Product"
-                className="w-full h-auto rounded-2xl object-cover transition-transform duration-700"
-              />
-            </div>
-          </motion.div>
-
-          {/* Content Left (Staggered Slide In Up) */}
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="mt-5 text-4xl md:text-6xl font-black leading-tight text-white"
-            >
-              Just One Vision
-              <span className="block bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] bg-clip-text text-transparent">
-                Intelligent Advancement
-              </span>
-            </motion.h3>
-
+      <section id="about" className="relative z-10 py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
+            {/* Image */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="space-y-4 mt-6 text-white/80 leading-relaxed"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex justify-center"
             >
-              <div className="text-lg space-y-4">
-                <p>
-                  JOVIA is a multinational intelligent networking platform
-                  designed to help users earn for the time they spend through
-                  networking, digital skills, entertainment, and engaging
-                  activities. By setting a countdown timer, users can
-                  participate in activities and earn money for every second
-                  spent on the platform.
-                </p>
-                <p>
-                  Founded by a seasoned serial entrepreneur, JOVIA serves users
-                  across several African countries with one simple mission: to
-                  ensure that every user gains real value from their time.
-                </p>
+              <div className="group relative w-full max-w-md">
+                <div className="absolute -inset-4 rounded-[40px]" />
+                <div className="relative overflow-hidden rounded-[32px]">
+                  <img
+                    src={aboutImage}
+                    alt="What is JOVIA Network"
+                    className="mx-auto h-auto w-full object-contain transition duration-700"
+                  />
+                </div>
               </div>
             </motion.div>
 
-            {/* CTA Button (Slide In Up) */}
+            {/* Content */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-              className="mt-10"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
+              {/* Badge */}
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-5 py-2.5 text-sm font-medium text-purple-300">
+                <Sparkles className="h-4 w-4" />
+                What Exactly Is JOVIA?
+              </div>
+
+              {/* Heading */}
+              <h2 className="mb-8 text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
+                Just One Vision <br />
+                <span className="bg-gradient-to-r from-[#E2C876] via-[#E2C876] to-[#C726D4] bg-clip-text text-transparent">
+                  Intelligent Advancement
+                </span>
+              </h2>
+
+              <p className="mb-6 leading-relaxed text-slate-400">
+                JOVIA is a multinational intelligent networking platform
+                designed to help users earn for the time they spend through
+                networking, digital skills, entertainment, and engaging
+                activities. By setting a countdown timer, users can participate
+                in activities and earn money for every second spent on the
+                platform.
+              </p>
+
+              <p className="mb-8 leading-relaxed text-slate-400">
+                Founded by a seasoned serial entrepreneur, JOVIA serves users
+                across several African countries with one simple mission: to
+                ensure that every user gains real value from their time.
+              </p>
+
               <Link
                 to="/register"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-bold text-[#2C044F] bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] shadow-[0_10px_25px_rgba(191,149,63,0.3)] hover:shadow-[0_15px_30px_rgba(252,246,186,0.4)] hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] px-8 py-4 font-semibold text-[#270041] transition-all duration-300 hover:scale-105"
               >
-                Get Started
+                Register Now
+                <ArrowRight className="h-5 w-5" />
               </Link>
             </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

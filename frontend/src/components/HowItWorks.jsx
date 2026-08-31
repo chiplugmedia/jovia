@@ -1,6 +1,23 @@
-import { Hourglass, BookOpen, HeartHandshake, ShieldCheck } from "lucide-react";
+import React from "react";
+import {
+  Hourglass,
+  BookOpen,
+  HeartHandshake,
+  ShieldCheck,
+  Sparkles,
+  ArrowRight,
+  BadgeDollarSign,
+  Coins,
+  Wallet,
+   Music,
+  Headphones,
+  Radio,
+  Disc3,
+} from "lucide-react";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
+import aboutImage from "@/assets/img/image0vea.jpeg";
+import withdrawalImage from "@/assets/img/image0.jpeg"; 
 const PILLARS = [
   {
     number: "01",
@@ -33,101 +50,290 @@ const PILLARS = [
 ];
 
 export default function Pillars() {
+const withdrawalFeatures = [
+  {
+    title: "Spotify + Jovia = Cash",
+    icon: Headphones,
+    iconBg: "bg-green-500/20",
+    iconColor: "text-green-400",
+  },
+  {
+    title: "Apple Music + Jovia = Cash",
+    icon: Music,
+    iconBg: "bg-red-500/20",
+    iconColor: "text-red-400",
+  },
+  {
+    title: "Audiomack + Jovia = Cash",
+    icon: Radio,
+    iconBg: "bg-orange-500/20",
+    iconColor: "text-orange-400",
+  },
+  {
+    title: "Boomplay + Jovia = Cash",
+    icon: Disc3,
+    iconBg: "bg-yellow-500/20",
+    iconColor: "text-yellow-400",
+  },
+];
+
   return (
-    <section
-      id="pillars"
-      className="relative bg-[#2C044F] py-32 overflow-hidden text-white"
-    >
-      {/* Dynamic Background Glows & Grid */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37]/10 rounded-full blur-[180px]" />
-        <div className="absolute -top-24 right-10 w-[400px] h-[400px] bg-[#BF953F]/10 rounded-full blur-[140px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+    <div className="relative overflow-hidden bg-[#05010d] text-white">
+      {/* Shared Background Effects matching AboutSection */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute left-20 top-20 h-72 w-72 rounded-full bg-purple-600/20 blur-[120px]" />
+        <div className="absolute right-20 top-[40%] h-96 w-96 rounded-full bg-fuchsia-600/10 blur-[150px]" />
+        <div className="absolute bottom-20 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[180px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#a855f71f,transparent_50%)]" />
       </div>
+      <section id="about" className="relative z-10 py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex justify-center"
+            >
+              <div className="group relative w-full max-w-md">
+                <div className="absolute -inset-4 rounded-[40px]" />
+                <div className="relative overflow-hidden rounded-[32px]">
+                  <img
+                    src={aboutImage}
+                    alt="What is JOVIA Network"
+                    className="mx-auto h-auto w-full object-contain transition duration-700"
+                  />
+                </div>
+              </div>
+            </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col items-center text-center max-w-3xl mx-auto"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#2C044F]/80 text-[#FCF6BA] text-xs font-bold uppercase tracking-[0.2em]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37] animate-ping" />
-            The Pillars
-          </div>
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Badge */}
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-5 py-2.5 text-sm font-medium text-purple-300">
+                <Sparkles className="h-4 w-4" />
+                What Exactly Is JOVIA?
+              </div>
 
-          <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-            What{" "}
-            <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] bg-clip-text text-transparent">
-              JOVIA
-            </span>{" "}
-            Stands On
-          </h2>
+              {/* Heading */}
+              <h2 className="mb-8 text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
+                Just One Vision <br />
+                <span className="bg-gradient-to-r from-[#E2C876] via-[#E2C876] to-[#C726D4] bg-clip-text text-transparent">
+                  Intelligent Advancement
+                </span>
+              </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-[#FCF6BA]/75 leading-relaxed max-w-xl">
-            Four core principles anchor our entire platform ecosystem — time,
-            skill, community, and radical honesty.
-          </p>
-        </motion.div>
+              <p className="mb-6 leading-relaxed text-slate-400">
+                JOVIA is a multinational intelligent networking platform
+                designed to help users earn for the time they spend through
+                networking, digital skills, entertainment, and engaging
+                activities. By setting a countdown timer, users can participate
+                in activities and earn money for every second spent on the
+                platform.
+              </p>
 
-        {/* Unique Asymmetric Layout */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {PILLARS.map((pillar, index) => {
-            const Icon = pillar.icon;
-            const isOffset = index % 2 !== 0;
+              <p className="mb-8 leading-relaxed text-slate-400">
+                Founded by a seasoned serial entrepreneur, JOVIA serves users
+                across several African countries with one simple mission: to
+                ensure that every user gains real value from their time.
+              </p>
 
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.7,
-                  delay: index * 0.15,
-                  ease: [0.21, 0.47, 0.32, 0.98],
-                }}
-                className={`group relative rounded-3xl border border-[#D4AF37]/20 bg-gradient-to-b from-[#3A0768]/60 to-[#2C044F]/80 p-8 sm:p-10 backdrop-blur-xl transition-all duration-500
-                  isOffset ? "md:translate-y-8" : ""
-                }`}
+              <Link
+                to="/register"
+                className="inline-flex items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] px-8 py-4 font-semibold text-[#270041] transition-all duration-300"
               >
-                {/* Gold Accent Line on Top */}
-                <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent group-hover:via-[#FCF6BA] transition-all duration-500" />
-
-                <div className="flex items-center justify-between">
-                  {/* Step / Number Badge */}
-                  <span className="font-mono text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#BF953F] to-[#FCF6BA]">
-                    {pillar.number}
-                  </span>
-
-                  {/* Icon Node */}
-                  <div className="flex size-12 items-center justify-center rounded-2xl border border-[#D4AF37]/30 bg-[#2C044F] text-[#FCF6BA] transition-all duration-300">
-                    <Icon className="size-6" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="mt-8">
-                  <div className="inline-block px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#D4AF37] bg-[#D4AF37]/10 rounded-md border border-[#D4AF37]/20 mb-3">
-                    {pillar.badge}
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-white group-hover:text-[#FCF6BA] ">
-                    {pillar.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-relaxed text-[#FCF6BA]/70">
-                    {pillar.body}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+                Register Now
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <section id="pillars" className="relative z-10 py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mx-auto flex max-w-3xl flex-col items-center text-center"
+          >
+            {/* Badge */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-5 py-2.5 text-sm font-medium text-purple-300">
+              <Sparkles className="h-4 w-4" />
+              The Pillars
+            </div>
+
+            {/* Heading */}
+            <h2 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              What{" "}
+              <span className="bg-gradient-to-r from-[#E2C876] via-[#E2C876] to-[#C726D4] bg-clip-text text-transparent">
+                JOVIA
+              </span>{" "}
+              Stands On
+            </h2>
+
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-400 sm:text-lg">
+              Four core principles anchor our entire platform ecosystem — time,
+              skill, community, and radical honesty.
+            </p>
+          </motion.div>
+
+          {/* Pillars Cards Grid */}
+          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
+            {PILLARS.map((pillar, index) => {
+              const Icon = pillar.icon;
+              const isOffset = index % 2 !== 0;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.12,
+                    ease: "easeOut",
+                  }}
+                  className={`group relative rounded-3xl border border-purple-500/20 bg-purple-950/20 p-8 backdrop-blur-xl transition-all duration-500 hover:border-purple-500/40 hover:bg-purple-900/30 sm:p-10 ${
+                    isOffset ? "md:translate-y-8" : ""
+                  }`}
+                >
+                  {/* Glowing Top Border Highlight */}
+                  <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-purple-500/40 to-transparent transition-all duration-500 group-hover:via-[#C726D4]" />
+
+                  <div className="flex items-center justify-between">
+                    {/* Number Badge */}
+                    <span className="bg-gradient-to-r from-[#E2C876] to-[#C726D4] bg-clip-text font-mono text-3xl font-black text-transparent">
+                      {pillar.number}
+                    </span>
+
+                    {/* Icon Node */}
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-purple-500/20 bg-purple-500/10 text-purple-300 transition-all duration-300 group-hover:scale-110 group-hover:border-purple-500/40 group-hover:bg-purple-500/20 group-hover:text-purple-200">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="mt-8">
+                    <div className="mb-3 inline-block rounded-lg border border-purple-500/20 bg-purple-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-purple-300">
+                      {pillar.badge}
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-white transition-colors duration-300 group-hover:text-purple-200">
+                      {pillar.title}
+                    </h3>
+
+                    <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                      {pillar.body}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* DAILY WITHDRAWAL SECTION */}
+      <section className="relative z-10 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Badge */}
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-5 py-2.5 text-sm font-medium text-purple-300">
+                <Sparkles className="h-4 w-4" />
+                Did You Know?
+              </div>
+
+              {/* Heading */}
+              <h2 className="mb-6 text-4xl font-black leading-tight text-white sm:text-5xl">
+                On JOVIA, You Listen to Music & Earn Rewards{" "}
+                <span className="bg-gradient-to-r from-[#E2C876] via-[#E2C876] to-[#C726D4] bg-clip-text text-transparent">
+                  Every Single Day!
+                </span>
+              </h2>
+
+              <p className="mb-8 text-lg leading-relaxed text-slate-300">
+                JOVIA is building strategic partnerships with singers, artists, producers, and music creators to bring exciting music experiences to our growing community
+              </p>
+
+              {/* Feature Cards Stack */}
+              <div className="mb-10 space-y-5">
+                {withdrawalFeatures.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition duration-300 hover:border-purple-500/30 hover:bg-white/[0.07]"
+                    >
+                      <div
+                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${item.iconBg}`}
+                      >
+                        <IconComponent
+                          className={`h-6 w-6 ${item.iconColor}`}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-white">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-slate-400">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+
+              <Link
+                to="/register"
+                className="inline-flex items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] px-8 py-4 font-semibold text-[#270041] transition-all duration-300"
+              >
+                Get Started
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </motion.div>
+
+            {/* Right Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex justify-center lg:justify-end"
+            >
+              <div className="relative w-full max-w-md">
+                <div className="absolute -inset-4 rounded-[40px]" />
+                <div className="relative overflow-hidden rounded-[32px]">
+                  <img
+                    src={withdrawalImage}
+                    alt="JOVIA Daily Withdrawal"
+                    className="mx-auto h-auto w-full object-contain transition duration-700"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
