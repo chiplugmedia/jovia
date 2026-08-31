@@ -122,6 +122,9 @@ const galleryItems = [
   },
 ];
 
+// Duplicate items array to create a seamless infinite loop effect
+const carouselItems = [...galleryItems, ...galleryItems];
+
 export default function ImageGallery() {
   return (
     <div className="relative overflow-hidden bg-[#05010d] text-white">
@@ -134,7 +137,7 @@ export default function ImageGallery() {
       </div>
 
       <section className="relative z-10 py-20 lg:py-28">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -156,93 +159,104 @@ export default function ImageGallery() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-base text-slate-300 sm:text-lg">
-              Scroll down to reveal each earning method one by one.
+              Explore our earning methods sliding across the screen.
             </p>
           </motion.div>
+        </div>
 
-          {/* Stacking Card Container */}
-          <div className="relative space-y-24 pb-20">
-            {galleryItems.map((item) => {
+        {/* Horizontal Sliding Container */}
+        <div className="flex w-full overflow-hidden">
+          <motion.div
+            className="flex gap-6 pr-6"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              ease: "linear",
+              duration: 35,
+              repeat: Infinity,
+            }}
+          >
+            {carouselItems.map((item, index) => {
               const BadgeIcon = item.icon;
 
               return (
-                <div key={item.id} className="sticky top-24 z-10 pt-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 80, scale: 0.95 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ margin: "-10% 0px -20% 0px" }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0a0518]/90 p-6 shadow-2xl backdrop-blur-2xl transition duration-300 hover:border-purple-500/30 sm:p-8 lg:p-10"
-                  >
+                <div
+                  key={`${item.id}-${index}`}
+                  className="w-[85vw] max-w-[500px] flex-shrink-0"
+                >
+                  <div className="relative h-full overflow-hidden rounded-3xl border border-white/10 bg-[#0a0518]/90 p-6 shadow-2xl backdrop-blur-2xl transition duration-300 hover:border-purple-500/30 sm:p-8">
                     {/* Top Glow Accent Layer */}
                     <div
                       className={`pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b ${item.accentGlow} opacity-60`}
                     />
 
-                    <div className="relative z-10 grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
-                      {/* Left Side: Content Details (Swaps to 2nd position on mobile) */}
-                      <div className="order-2 lg:order-1 lg:col-span-7">
-                        {/* Header Badges */}
-                        <div className="mb-4 flex items-center justify-between">
-                          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-purple-300">
-                            <BadgeIcon className="h-4 w-4 text-purple-400" />
-                            <span>{item.badge}</span>
+                    <div className="relative z-10 flex flex-col h-full justify-between gap-6">
+                      {/* Image Component (Top on mobile and layout) */}
+                      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#05010d]/90 p-2 shadow-inner">
+                        <img
+                          src={item.imageUrl}
+                          alt={item.title}
+                          className="h-48 w-full object-contain rounded-xl sm:h-56"
+                          loading="lazy"
+                        />
+                      </div>
+
+                      {/* Content Section */}
+                      <div className="flex flex-col flex-grow justify-between">
+                        <div>
+                          {/* Header Badges */}
+                          <div className="mb-4 flex items-center justify-between">
+                            <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-purple-300">
+                              <BadgeIcon className="h-4 w-4 text-purple-400" />
+                              <span>{item.badge}</span>
+                            </div>
+                            {/* <span className="text-sm font-black text-[#E2C876] tracking-widest uppercase">
+                              {item.step}
+                            </span> */}
                           </div>
-                          
+
+                          {/* Title & Tagline */}
+                          <h3 className="text-xl font-black text-white sm:text-2xl leading-tight">
+                            {item.title}
+                          </h3>
+                          <p className="mt-1 text-xs font-semibold text-[#E2C876] sm:text-sm">
+                            {item.tagline}
+                          </p>
+
+                          {/* Description */}
+                          <p className="mt-3 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                            {item.description}
+                          </p>
+
+                          {/* Bullet Highlights */}
+                          <ul className="mt-4 space-y-2">
+                            {item.highlights.map((point, pIdx) => (
+                              <li
+                                key={pIdx}
+                                className="flex items-start gap-2 text-xs text-slate-200"
+                              >
+                                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-purple-400" />
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
 
-                        {/* Title & Tagline */}
-                        <h3 className="text-2xl font-black text-white sm:text-3xl lg:text-4xl leading-tight">
-                          {item.title}
-                        </h3>
-                        <p className="mt-1.5 text-sm font-semibold text-[#E2C876] sm:text-base">
-                          {item.tagline}
-                        </p>
-
-                        {/* Description */}
-                        <p className="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">
-                          {item.description}
-                        </p>
-
-                        {/* Bullet Highlights */}
-                        <ul className="mt-6 space-y-2.5">
-                          {item.highlights.map((point, pIdx) => (
-                            <li
-                              key={pIdx}
-                              className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200"
-                            >
-                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-purple-400" />
-                              <span>{point}</span>
-                            </li>
-                          ))}
-                        </ul>
-
                         {/* Reward Box */}
-                        <div className="mt-6 inline-flex w-full items-center gap-3 rounded-2xl border border-purple-500/30 bg-purple-500/10 p-4 backdrop-blur-md">
-                          <TrendingUp className="h-5 w-5 shrink-0 text-[#E2C876]" />
-                          <span className="text-xs font-bold text-purple-200 sm:text-sm">
+                        <div className="mt-6 inline-flex w-full items-center gap-3 rounded-2xl border border-purple-500/30 bg-purple-500/10 p-3.5 backdrop-blur-md">
+                          <TrendingUp className="h-4 w-4 shrink-0 text-[#E2C876]" />
+                          <span className="text-xs font-bold text-purple-200">
                             {item.reward}
                           </span>
                         </div>
                       </div>
-
-                      {/* Right Side: Showcase Image (Swaps to 1st position on mobile) */}
-                      <div className="order-1 lg:order-2 lg:col-span-5">
-                        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#05010d]/90 p-2 shadow-inner">
-                          <img
-                            src={item.imageUrl}
-                            alt={item.title}
-                            className="h-auto w-full max-h-[380px] object-contain rounded-xl"
-                            loading="lazy"
-                          />
-                        </div>
-                      </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
