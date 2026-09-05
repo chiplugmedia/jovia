@@ -9,15 +9,23 @@ import {
   BadgeDollarSign,
   Coins,
   Wallet,
-   Music,
+  Music,
   Headphones,
   Radio,
   Disc3,
+  CreditCard,
+  Gift,
+  ShoppingBag,
+  Globe,
+  Smartphone,
+  Zap,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import aboutImage from "@/assets/img/image0vea.jpeg";
-import withdrawalImage from "@/assets/img/image0.jpeg"; 
+import withdrawalImage from "@/assets/img/image0.jpeg";
+import joviaCardImage from "@/assets/img/WhatsAJ5.jpeg";
+
 const PILLARS = [
   {
     number: "01",
@@ -50,32 +58,36 @@ const PILLARS = [
 ];
 
 export default function Pillars() {
-const withdrawalFeatures = [
-  {
-    title: "Spotify + Jovia = Cash",
-    icon: Headphones,
-    iconBg: "bg-green-500/20",
-    iconColor: "text-green-400",
-  },
-  {
-    title: "Apple Music + Jovia = Cash",
-    icon: Music,
-    iconBg: "bg-red-500/20",
-    iconColor: "text-red-400",
-  },
-  {
-    title: "Audiomack + Jovia = Cash",
-    icon: Radio,
-    iconBg: "bg-orange-500/20",
-    iconColor: "text-orange-400",
-  },
-  {
-    title: "Boomplay + Jovia = Cash",
-    icon: Disc3,
-    iconBg: "bg-yellow-500/20",
-    iconColor: "text-yellow-400",
-  },
-];
+  const withdrawalFeatures = [
+    {
+      title: "Spotify + Jovia = Cash",
+      icon: Headphones,
+      iconBg: "bg-green-500/20",
+      iconColor: "text-green-400",
+      description: "Earn rewards while streaming your favorite music",
+    },
+    {
+      title: "Apple Music + Jovia = Cash",
+      icon: Music,
+      iconBg: "bg-red-500/20",
+      iconColor: "text-red-400",
+      description: "Get paid for every song you listen to",
+    },
+    {
+      title: "Audiomack + Jovia = Cash",
+      icon: Radio,
+      iconBg: "bg-orange-500/20",
+      iconColor: "text-orange-400",
+      description: "Turn your listening time into earnings",
+    },
+    {
+      title: "Boomplay + Jovia = Cash",
+      icon: Disc3,
+      iconBg: "bg-yellow-500/20",
+      iconColor: "text-yellow-400",
+      description: "Earn daily rewards from your playlists",
+    },
+  ];
 
   return (
     <div className="relative overflow-hidden bg-[#05010d] text-white">
@@ -86,6 +98,8 @@ const withdrawalFeatures = [
         <div className="absolute bottom-20 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[180px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#a855f71f,transparent_50%)]" />
       </div>
+
+      {/* ABOUT SECTION */}
       <section id="about" className="relative z-10 py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
@@ -147,7 +161,7 @@ const withdrawalFeatures = [
 
               <Link
                 to="/register"
-                className="inline-flex items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] px-8 py-4 font-semibold text-[#270041] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] px-8 py-4 font-semibold text-[#270041] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
               >
                 Register Now
                 <ArrowRight className="h-5 w-5" />
@@ -156,6 +170,8 @@ const withdrawalFeatures = [
           </div>
         </div>
       </section>
+
+      {/* PILLARS SECTION */}
       <section id="pillars" className="relative z-10 py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -270,7 +286,9 @@ const withdrawalFeatures = [
               </h2>
 
               <p className="mb-8 text-lg leading-relaxed text-slate-300">
-                JOVIA is building strategic partnerships with singers, artists, producers, and music creators to bring exciting music experiences to our growing community
+                JOVIA is building strategic partnerships with singers, artists,
+                producers, and music creators to bring exciting music
+                experiences to our growing community
               </p>
 
               {/* Feature Cards Stack */}
@@ -302,10 +320,9 @@ const withdrawalFeatures = [
                 })}
               </div>
 
-
               <Link
                 to="/register"
-                className="inline-flex items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] px-8 py-4 font-semibold text-[#270041] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] px-8 py-4 font-semibold text-[#270041] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
               >
                 Get Started
                 <ArrowRight className="h-5 w-5" />
@@ -330,6 +347,133 @@ const withdrawalFeatures = [
                   />
                 </div>
               </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* JOVIA DEBIT CARD SECTION */}
+      <section className="relative z-10 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            {/* LEFT SIDE - CARD IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex justify-center lg:justify-start"
+            >
+              <div className="relative w-full max-w-md">
+                <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-r from-[#E2C876]/20 to-[#C726D4]/20 blur-3xl" />
+
+                <div className="relative overflow-hidden rounded-[32px]">
+                  <img
+                    src={joviaCardImage}
+                    alt="JOVIA Debit Card"
+                    className="mx-auto w-full object-contain"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* RIGHT SIDE - CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Badge */}
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-5 py-2.5 text-sm font-medium text-purple-300">
+                <CreditCard className="h-4 w-4" />
+                Introducing JOVIA Debit Card
+              </div>
+
+              {/* Heading */}
+              <h2 className="mb-6 text-4xl font-black leading-tight text-white sm:text-5xl">
+                Easy Payments & More with{" "}
+                <span className="bg-gradient-to-r from-[#E2C876] via-[#E2C876] to-[#C726D4] bg-clip-text text-transparent">
+                  JOVIA Debit Card
+                </span>
+              </h2>
+
+              <p className="mb-8 text-lg leading-relaxed text-slate-300">
+                The JOVIA Debit Card is completely optional. Activate your card
+                and enjoy more payment flexibility, secure transactions, and
+                convenient access to supported services worldwide.
+              </p>
+
+              {/* Features */}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition duration-300 hover:border-purple-500/30">
+                  <ShoppingBag className="mb-3 h-10 w-10 text-[#E2C876]" />
+                  <h4 className="mb-2 font-semibold text-white">
+                    Shop Online Easily
+                  </h4>
+                  <p className="text-sm text-slate-400">
+                    Buy products and services from supported online stores.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition duration-300 hover:border-purple-500/30">
+                  <ShieldCheck className="mb-3 h-10 w-10 text-[#C726D4]" />
+                  <h4 className="mb-2 font-semibold text-white">
+                    Secure Payments
+                  </h4>
+                  <p className="text-sm text-slate-400">
+                    Pay for subscriptions and purchases safely.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition duration-300 hover:border-purple-500/30">
+                  <Globe className="mb-3 h-10 w-10 text-[#E2C876]" />
+                  <h4 className="mb-2 font-semibold text-white">
+                    Worldwide Access
+                  </h4>
+                  <p className="text-sm text-slate-400">
+                    Use on supported platforms worldwide.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition duration-300 hover:border-purple-500/30">
+                  <Wallet className="mb-3 h-10 w-10 text-[#C726D4]" />
+                  <h4 className="mb-2 font-semibold text-white">
+                    Withdraw Earnings
+                  </h4>
+                  <p className="text-sm text-slate-400">
+                    Access eligible earnings through supported ATMs.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition duration-300 hover:border-purple-500/30">
+                  <Smartphone className="mb-3 h-10 w-10 text-[#E2C876]" />
+                  <h4 className="mb-2 font-semibold text-white">
+                    Everyday Payments
+                  </h4>
+                  <p className="text-sm text-slate-400">
+                    Pay for airtime, data, and subscriptions.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition duration-300 hover:border-purple-500/30">
+                  <Zap className="mb-3 h-10 w-10 text-[#C726D4]" />
+                  <h4 className="mb-2 font-semibold text-white">
+                    Fast Transactions
+                  </h4>
+                  <p className="text-sm text-slate-400">
+                    Quick, simple, and stress-free payments.
+                  </p>
+                </div>
+              </div>
+
+              <Link
+                to="/register"
+                className="mt-8 inline-flex items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] px-8 py-4 font-semibold text-[#270041] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+              >
+                Activate Card
+                <ArrowRight className="h-5 w-5" />
+              </Link>
             </motion.div>
           </div>
         </div>

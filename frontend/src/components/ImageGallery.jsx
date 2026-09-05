@@ -10,6 +10,7 @@ import {
   TrendingUp,
   Video,
   Gamepad2,
+  GraduationCap,
 } from "lucide-react";
 
 // Asset imports
@@ -19,6 +20,7 @@ import image0 from "@/assets/img/image0.jpeg";
 import joviaWin from "@/assets/img/joviawin.jpg";
 import image0JSJA from "@/assets/img/image0JSJA.jpeg";
 import image1ASDFG from "@/assets/img/image1ASDFG.jpeg";
+import image1HJH from "@/assets/img/joviasghs.jpeg";
 
 const galleryItems = [
   {
@@ -120,6 +122,28 @@ const galleryItems = [
     imageUrl: image1ASDFG,
     accentGlow: "from-cyan-500/20 via-purple-500/10 to-transparent",
   },
+  {
+  id: 7,
+  step: "Step 06",
+  badge: "Skill Verse",
+  icon: GraduationCap,
+  title: "JOVIA SKILL VERSE",
+  tagline: "Learn High-Income Skills While You Earn",
+  description:
+    "Skill Verse is JOVIA’s learning hub designed to help users develop practical, in-demand digital skills while they continue earning. Users can learn valuable digital skills while still benefiting from JOVIA’s earning opportunities. JOVIA Skills is designed to transform users into skilled professionals, digital entrepreneurs, and long-term earners.",
+  highlights: [
+    "Social Media Management",
+    "Copywriting",
+    "UI/UX Design",
+    "YouTube Automation",
+    "App Development",
+    "Graphic Design",
+    "And Many More",
+  ],
+  reward: "Learn Skills & Earn More",
+  imageUrl: image1HJH,
+  accentGlow: "from-rose-500/20 via-purple-500/10 to-transparent",
+},
 ];
 
 // Duplicate items array to create a seamless infinite loop effect
