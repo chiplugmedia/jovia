@@ -2,23 +2,18 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, X, Sparkles } from "lucide-react";
+import video1 from "@/assets/img/jovianetv001.mp4";
+import video2 from "@/assets/img/joviavideo001.mp4";
 
-
-const VIDEO_DATA = [
+export const VIDEO_DATA = [
   {
     id: 1,
-    // Note: If you encounter issues with Autoplay, it's often because modern browsers
-    // require video to be muted before allowing automatic playback.
-    // Replace these URLs with your actual direct video links.
-    videoUrl:
-      "/src/assets/img/jovianetv001.mp4",
+    videoUrl: video1,
   },
   {
     id: 2,
-    videoUrl:
-      "/src/assets/img/joviavideo001.mp4",
+    videoUrl: video2,
   },
-  
 ];
 
 export default function AutomaticVideoSlider() {
@@ -48,8 +43,8 @@ export default function AutomaticVideoSlider() {
     <section className="relative min-h-screen bg-[#05010d] text-white py-16 px-4 sm:px-8 overflow-hidden font-sans">
       {/* Background Lighting Effects */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-1/4 left-10 h-96 w-96 rounded-full bg-[#C726D4]/10 blur-[140px]" />
-        <div className="absolute bottom-1/4 right-10 h-96 w-96 rounded-full bg-[#E2C876]/10 blur-[140px]" />
+        <div className="absolute top-1/4 left-10 rounded-full bg-[#C726D4]/10 blur-[140px]" />
+        <div className="absolute bottom-1/4 right-10 rounded-full bg-[#E2C876]/10 blur-[140px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -57,7 +52,7 @@ export default function AutomaticVideoSlider() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 border-b border-white/10 pb-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E2C876]/10 border border-[#E2C876]/30 text-[#E2C876] text-xs font-semibold uppercase tracking-widest mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Sparkles/>
               Jovia Network Stream
             </div>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white uppercase">
@@ -73,16 +68,16 @@ export default function AutomaticVideoSlider() {
             <button
               onClick={() => handleScroll("left")}
               aria-label="Scroll Left"
-              className="p-3 rounded-2xl bg-[#0a0518] border border-white/10 hover:border-[#E2C876]/50 text-white hover:text-[#E2C876] transition-all active:scale-95 shadow-lg"
+              className="p-3 rounded-2xl bg-[#0a0518] border border-white/10 hover:border-[#E2C876]/50 text-white hover:text-[#E2C876] transition-all"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft/>
             </button>
             <button
               onClick={() => handleScroll("right")}
               aria-label="Scroll Right"
-              className="p-3 rounded-2xl bg-[#0a0518] border border-white/10 hover:border-[#E2C876]/50 text-white hover:text-[#E2C876] transition-all active:scale-95 shadow-lg"
+              className="p-3 rounded-2xl bg-[#0a0518] border border-white/10 hover:border-[#E2C876]/50 text-white hover:text-[#E2C876] transition-alL"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight/>
             </button>
           </div>
         </div>
@@ -97,7 +92,7 @@ export default function AutomaticVideoSlider() {
             <div
               key={item.id}
               // Card is sized to show video clearly, snapped to start, relative for overlay click
-              className="flex-none w-[90%] md:w-[70%] lg:w-[60%] snap-start rounded-3xl border-2 border-[#E2C876]/20 bg-black overflow-hidden group cursor-pointer aspect-video relative"
+              className="flex-none snap-start rounded-3xl border-2 border-[#E2C876]/20 bg-black overflow-hidden group cursor-pointer aspect-video relative"
               onClick={() => setActiveVideoUrl(item.videoUrl)}
             >
               <video
