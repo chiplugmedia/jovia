@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, X, Sparkles } from "lucide-react";
 
+
 const VIDEO_DATA = [
   {
     id: 1,
@@ -26,7 +27,7 @@ export default function AutomaticVideoSlider() {
 
   // Auto-play effect: Modern browsers typically require muted for autoplay.
   // We handle this by adding 'muted' and 'autoplay' attributes directly in the JSX.
-  // If your video source requires unmuted audio immediately, the user MUST interact first.
+  // If your video source requires  audio immediately, the user MUST interact first.
 
   const handleScroll = (direction) => {
     if (scrollRef.current) {
