@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TelegramSupport({ username = "Joviasupport_agent" }) {
+export default function TelegramSupport({ username = "jovia_support" }) {
   return (
     <div className="fixed bottom-5 left-5 z-[9999]">
       <a

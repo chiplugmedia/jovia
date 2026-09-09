@@ -1,17 +1,17 @@
-"use client";
-
 import React, { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, X, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Sparkles, Play } from "lucide-react";
 import video1 from "@/assets/img/jovianetv001.mp4";
 import video2 from "@/assets/img/joviavideo001.mp4";
 
 export const VIDEO_DATA = [
   {
     id: 1,
+    title: "Earn $100 Daily Playing Simple Games",
     videoUrl: video1,
   },
   {
     id: 2,
+    title: "Watch Exclusive Stream Content",
     videoUrl: video2,
   },
 ];
@@ -51,9 +51,9 @@ export default function AutomaticVideoSlider() {
               Jovia Network Stream
             </div>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white uppercase">
-              Exclusive{" "}
+              You Can Earn At Least $100 Daily Playing Simple{" "}
               <span className="bg-gradient-to-r from-[#E2C876] to-[#C726D4] bg-clip-text text-transparent">
-                AI & Celebrity Content
+                Games On Jovia And Watch Exclusive Contents
               </span>
             </h2>
           </div>
@@ -63,16 +63,16 @@ export default function AutomaticVideoSlider() {
             <button
               onClick={() => handleScroll("left")}
               aria-label="Scroll Left"
-              className="p-3 rounded-2xl bg-[#0a0518] border border-white/10 hover:border-[#E2C876]/50 text-white hover:text-[#E2C876] transition-all"
+              className="p-3 rounded-2xl bg-[#0a0518] border border-white/10 hover:border-[#E2C876]/50 text-white hover:text-[#E2C876] transition-all active:scale-95 shadow-lg"
             >
-              <ChevronLeft />
+              <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => handleScroll("right")}
               aria-label="Scroll Right"
-              className="p-3 rounded-2xl bg-[#0a0518] border border-white/10 hover:border-[#E2C876]/50 text-white hover:text-[#E2C876] transition-all"
+              className="p-3 rounded-2xl bg-[#0a0518] border border-white/10 hover:border-[#E2C876]/50 text-white hover:text-[#E2C876] transition-all active:scale-95 shadow-lg"
             >
-              <ChevronRight />
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -92,22 +92,33 @@ export default function AutomaticVideoSlider() {
             return (
               <div
                 key={item.id}
-                // Automatic sizing wrapper based on actual video natural dimensions
                 className="flex-none w-auto h-auto min-w-[280px] max-w-full snap-start rounded-3xl border-2 border-[#E2C876]/20 bg-black overflow-hidden group cursor-pointer relative"
                 onClick={() => setActiveVideoUrl(videoSrc)}
               >
+                {/* Background Muted Video */}
                 <video
                   src={videoSrc}
                   muted
                   autoPlay
                   loop
                   playsInline
-                  // Auto height and width to preserve native video aspect ratio
                   className="w-auto h-auto max-h-[60vh] sm:max-h-[70vh] object-contain group-hover:scale-105 transition-transform duration-700"
                 />
 
-                {/* Optional slight dark overlay on hover */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300 flex flex-col items-center justify-center p-4">
+                  {/* Glowing Play Button Icon */}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-r from-[#E2C876] to-[#C726D4] p-0.5 shadow-2xl shadow-[#C726D4]/40 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-full h-full bg-[#05010d]/80 rounded-full flex items-center justify-center backdrop-blur-md group-hover:bg-transparent transition-colors duration-300">
+                      <Play className="w-7 h-7 sm:w-8 sm:h-8 text-[#E2C876] fill-[#E2C876] ml-1 group-hover:text-white group-hover:fill-white transition-colors" />
+                    </div>
+                  </div>
+
+                  {/* Play Action Text */}
+                  <div className="mt-4 px-4 py-1.5 rounded-full bg-[#0a0518]/80 border border-[#E2C876]/40 backdrop-blur-md text-xs sm:text-sm font-semibold text-[#E2C876] group-hover:border-[#E2C876] group-hover:text-white transition-all shadow-md">
+                    Click to Play Full Video
+                  </div>
+                </div>
               </div>
             );
           })}
