@@ -9,6 +9,8 @@ import CallToAction from '../components/tasks';
 import AboutSection from '../components/aboutus';
 import TasksSection from '../components/tasks';
 import ImageGallery from '../components/ImageGallery';
+import Plans from '../components/Plans';
+import VideoSection from '../components/Video';
 
 export default function Home() {
   return (
@@ -16,7 +18,9 @@ export default function Home() {
       <Header />
       <Hero />
       <HowItWorks />
+      <VideoSection />
       <ImageGallery />
+      <Plans />
       <Faq />
       <Footer />
     </div>

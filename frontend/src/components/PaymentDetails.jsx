@@ -1,5 +1,10 @@
-import { useState } from 'react';
-import { BANK_DETAILS, PLANS, TELEGRAM_HANDLE, TELEGRAM_PREFILLED_URL } from '@/lib/constants';
+import { useState } from "react";
+import {
+  BANK_DETAILS,
+  PLANS,
+  TELEGRAM_HANDLE,
+  TELEGRAM_PREFILLED_URL,
+} from "@/lib/constants";
 
 export default function PaymentDetails({ user }) {
   const [copied, setCopied] = useState(false);
@@ -10,11 +15,11 @@ export default function PaymentDetails({ user }) {
     try {
       await navigator.clipboard.writeText(text);
     } catch {
-      const ta = document.createElement('textarea');
+      const ta = document.createElement("textarea");
       ta.value = text;
       document.body.appendChild(ta);
       ta.select();
-      document.execCommand('copy');
+      document.execCommand("copy");
       document.body.removeChild(ta);
     }
     setCopied(true);
@@ -26,9 +31,13 @@ export default function PaymentDetails({ user }) {
         <span className="w-9 h-9 rounded-full bg-brand/10 text-brand flex items-center justify-center font-display font-bold">
           ✓
         </span>
-        <h1 className="font-display font-bold text-2xl tracking-tight">Account created</h1>
+        <h1 className="font-display font-bold text-2xl tracking-tight">
+          Account created
+        </h1>
       </div>
-      <p className="text-sm text-ink/50 mt-1 mb-6">Complete payment to activate your line.</p>
+      <p className="text-sm text-ink/50 mt-1 mb-6">
+        Complete payment to activate your line.
+      </p>
 
       <div className="bg-paperSoft rounded-2xl p-5 mb-5">
         <div className="flex justify-between text-sm py-1.5">
@@ -46,19 +55,27 @@ export default function PaymentDetails({ user }) {
       </div>
 
       <div className="border border-brand/25 bg-brand/5 rounded-2xl p-5">
-        <span className="font-mono text-xs uppercase tracking-widest text-brand">Bank transfer details</span>
+        <span className="font-mono text-xs uppercase tracking-widest text-brand">
+          Bank transfer details
+        </span>
         <div className="mt-3 space-y-2.5 text-sm">
           <div className="flex justify-between items-center">
             <span className="text-ink/50">Bank name</span>
-            <span className="font-semibold font-mono">{BANK_DETAILS.bankName}</span>
+            <span className="font-semibold font-mono">
+              {BANK_DETAILS.bankName}
+            </span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-ink/50">Account number</span>
-            <span className="font-semibold font-mono tracking-wide">{BANK_DETAILS.accountNumber}</span>
+            <span className="font-semibold font-mono tracking-wide">
+              {BANK_DETAILS.accountNumber}
+            </span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-ink/50">Account name</span>
-            <span className="font-semibold font-mono text-right">{BANK_DETAILS.accountName}</span>
+            <span className="font-semibold font-mono text-right">
+              {BANK_DETAILS.accountName}
+            </span>
           </div>
         </div>
         <button
@@ -69,14 +86,17 @@ export default function PaymentDetails({ user }) {
           Copy bank details
         </button>
         {copied && (
-          <p className="text-xs text-brandDeep mt-2 text-center">✅ Copied to clipboard!</p>
+          <p className="text-xs text-brandDeep mt-2 text-center">
+            ✅ Copied to clipboard!
+          </p>
         )}
       </div>
 
       <div className="mt-5 flex items-start gap-3 bg-inkSoft text-paper rounded-2xl p-5">
         <span className="text-lg">✈️</span>
         <p className="text-sm leading-relaxed text-paper/80">
-          Once you've made payment, send your payment proof (screenshot or receipt) to{' '}
+          Once you've made payment, send your payment proof (screenshot or
+          receipt) to{" "}
           <a
             href={`https://t.me/${TELEGRAM_HANDLE}`}
             target="_blank"
@@ -84,8 +104,9 @@ export default function PaymentDetails({ user }) {
             className="text-brandBright font-semibold hover:underline"
           >
             @{TELEGRAM_HANDLE}
-          </a>{' '}
-          on Telegram to activate your line. Activation usually takes under 15 minutes.
+          </a>{" "}
+          on Telegram to activate your line. Activation usually takes under 15
+          minutes.
         </p>
       </div>
 
