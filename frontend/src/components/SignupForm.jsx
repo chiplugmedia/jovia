@@ -96,7 +96,7 @@ export default function SignupFlow() {
       };
 
       const res = await fetch(
-        "https://api.jovianetwork.ng/api/create-payment",
+        "http://localhost:3000/api/create-payment",
         {
           method: "POST",
           headers: {
