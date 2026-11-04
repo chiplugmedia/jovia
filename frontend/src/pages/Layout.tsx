@@ -5,7 +5,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <TelegramSupport username="your_actual_telegram_handle" />
+        <TelegramSupport username="jovia_support" />
       </body>
     </html>
   );

@@ -8,7 +8,17 @@ import {
 
 export default function PaymentDetails({ user }) {
   const [copied, setCopied] = useState(false);
-  const plan = PLANS.find((p) => p.id === user.plan);
+  const plan = PLANS.find((p) => p.id === user.plan || (user.plan === "Sliver" && p.id === "Silver"));
+
+  const userTelegramText = `Hello Jovia Support,
+
+I have completed registration on Jovia Network:
+• Name: ${user.name || user.fullname || "N/A"}
+• Plan: Jovia ${user.plan || "Silver"}
+${user.phone ? `• Phone: ${user.phone}\n` : ""}${user.email ? `• Email: ${user.email}\n` : ""}
+Please confirm my payment and activate my account. Thank you!`;
+
+  const userTelegramUrl = `https://t.me/${TELEGRAM_HANDLE}?text=${encodeURIComponent(userTelegramText)}`;
 
   async function handleCopy() {
     const text = `Bank: ${BANK_DETAILS.bankName}\nAccount number: ${BANK_DETAILS.accountNumber}\nAccount name: ${BANK_DETAILS.accountName}`;
@@ -105,13 +115,13 @@ export default function PaymentDetails({ user }) {
           >
             @{TELEGRAM_HANDLE}
           </a>{" "}
-          on Telegram to activate your line. Activation usually takes under 15
+          on Telegram to activate your account. Activation usually takes under 15
           minutes.
         </p>
       </div>
 
       <a
-        href={TELEGRAM_PREFILLED_URL}
+        href={userTelegramUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="w-full mt-6 bg-[#0088cc] hover:bg-[#0077b3] text-white font-display font-semibold rounded-full py-3.5 transition text-sm flex items-center justify-center gap-2"

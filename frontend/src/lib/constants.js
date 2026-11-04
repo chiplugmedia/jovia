@@ -131,8 +131,8 @@ export const BANK_DETAILS = {
 // ---------------------------------------------------------------
 // Support / Telegram
 // ---------------------------------------------------------------
-export const TELEGRAM_HANDLE = "nextelconnect_support";
+export const TELEGRAM_HANDLE = "jovia_support";
 export const TELEGRAM_URL = `https://t.me/${TELEGRAM_HANDLE}`;
 export const TELEGRAM_PREFILLED_URL = `${TELEGRAM_URL}?text=${encodeURIComponent(
-  "Hello Nextel Connect, I have made payment and would like to send my proof of payment. Please activate my line. Thank you!",
+  "Hello Jovia Network Support, I would like to activate my membership. Thank you!",
 )}`;

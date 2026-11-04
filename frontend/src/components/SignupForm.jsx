@@ -10,8 +10,9 @@ import {
   FaCheckCircle,
   FaExclamationTriangle,
 } from "react-icons/fa";
-import { Sparkles, Check, ArrowRight, Zap, ShieldCheck } from "lucide-react";
+import { Sparkles, Check, ArrowRight, Zap, Send } from "lucide-react";
 import logo from "@/assets/img/jovia.png";
+import { TELEGRAM_HANDLE } from "@/lib/constants";
 
 const PLANS = [
   {
@@ -30,7 +31,7 @@ const PLANS = [
   },
 ];
 
-export default function SignupFlow() {
+export default function SignupFlow({ onSuccess }) {
   const [searchParams] = useSearchParams();
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -83,6 +84,24 @@ export default function SignupFlow() {
       return setError("Passwords do not match.");
     }
 
+    const selectedPlan = PLANS.find((p) => p.id === form.plan) || {
+      name: `Jovia ${form.plan}`,
+      price: form.plan === "Gold" ? "₦15,000" : "₦9,000",
+    };
+
+    const telegramMessage = `Hello Jovia Support,
+
+I have filled the registration form on Jovia Network. Here are my details:
+
+• Full Name: ${form.fullname.trim()}
+• Phone Number: ${form.phone.trim()}
+• Email: ${form.email.trim().toLowerCase()}
+• Selected Plan: ${selectedPlan.name} (${selectedPlan.price})
+
+Please assist me with activating my account.`;
+
+    const telegramUrl = `https://t.me/${TELEGRAM_HANDLE}?text=${encodeURIComponent(telegramMessage)}`;
+
     try {
       setLoading(true);
 
@@ -95,32 +114,36 @@ export default function SignupFlow() {
         confirmPassword: form.confirmPassword,
       };
 
-      const res = await fetch(
-        "https://api.jovianetwork.ng/api/create-payment",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
+      // Best-effort database recording; does not block Telegram redirection
+      try {
+        await fetch(
+          "https://api.jovianetwork.ng/api/create-payment",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(payload),
           },
-          body: JSON.stringify(payload),
-        },
-      );
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data?.message || "Failed to initialize payment.");
+        );
+      } catch (backendErr) {
+        console.warn("Backend registration sync failed (proceeding to Telegram):", backendErr);
       }
 
-      if (data.link || data.payment_url || data.checkout_url) {
-        window.location.href =
-          data.link || data.payment_url || data.checkout_url;
-      } else {
-        setError("Unable to initialize payment link.");
+      if (onSuccess) {
+        onSuccess({
+          name: form.fullname.trim(),
+          phone: form.phone.trim(),
+          email: form.email.trim().toLowerCase(),
+          plan: form.plan,
+        });
       }
+
+      window.location.href = telegramUrl;
     } catch (err) {
-      setError(err.message || "Something went wrong. Please try again.");
+      // In case of any unexpected client issue, proceed directly to Telegram
+      window.location.href = telegramUrl;
     } finally {
       setLoading(false);
     }
@@ -214,8 +237,7 @@ export default function SignupFlow() {
 
             
             <p className="mt-2 text-[11px] leading-relaxed text-slate-500">
-              Payments processed securely by our certified partner. Encrypted in
-              transit (TLS).
+              Direct membership activation and 24/7 support via Telegram.
             </p>
           </div>
         )}
@@ -416,10 +438,13 @@ export default function SignupFlow() {
                 disabled={loading}
                 className="w-2/3 py-3.5 rounded-2xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] font-black text-[#05010d] hover:opacity-95 transition disabled:opacity-50 flex items-center justify-center gap-2"
               >
-                {loading ? "Processing..." : "Complete & Pay"}
-                <ShieldCheck className="h-4 w-4" />
+                {loading ? "Creating..." : "Create Account"}
               </button>
             </div>
+
+            {/* <p className="mt-3 text-center text-xs text-slate-400">
+              You will be redirected to @{TELEGRAM_HANDLE} on Telegram with your registration details.
+            </p> */}
           </form>
         )}
       </div>
